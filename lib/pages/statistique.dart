@@ -48,7 +48,7 @@ class _MyStatistiqueState extends State<MyStatistique> {
 
   int _index = 0;
   void _increment() {
-    if (_index < Stepps.length-1) {
+    if (_index < Stepps.length - 1) {
       setState(() {
         _index++;
       });
@@ -63,6 +63,7 @@ class _MyStatistiqueState extends State<MyStatistique> {
     }
   }
 
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +77,7 @@ class _MyStatistiqueState extends State<MyStatistique> {
               onStepContinue: _increment,
               onStepCancel: _decrement,
               currentStep: _index,
-            )
+            ),
           ],
         ),
       ),

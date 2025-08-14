@@ -1,5 +1,7 @@
+import 'package:exo/compteur_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'pages/accueil.dart';
 import 'pages/compte.dart';
 import 'pages/statistique.dart';
@@ -20,7 +22,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
       ),
       debugShowCheckedModeBanner: false,
-      home: const Myappli(),
+      home: ChangeNotifierProvider(
+        create: (_) => CompteurProvider(0),
+        child: const Myappli(),
+      ),
     );
   }
 }
@@ -51,8 +56,11 @@ class _MyappliState extends State<Myappli> {
     });
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: Text("Like"),
@@ -60,6 +68,7 @@ class _MyappliState extends State<Myappli> {
         centerTitle: true,
         backgroundColor: Colors.green,
         actions: <Widget>[IconButton(onPressed: afficher, icon: _favorit)],
+        
       ),
 
       body: mesPages[pageActuel],
@@ -132,35 +141,29 @@ class _MyappliState extends State<Myappli> {
 
       drawer: Drawer(
         child: ListView(
-         children: [
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.green,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.green),
+              child: Center(
+                child: Text(
+                  "Menu de navigation",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
             ),
-            child: Center(
-            child: Text("Menu de navigation",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-            ),
-            ),
-          )),
 
-          ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Accuel'),
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.supervised_user_circle),
-            title: Text('Mon Compte'),
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.assessment),
-            title: Text('Statistiques'),
-          )
-         ],
+            ListTile(leading: Icon(Icons.home), title: Text('Accuel')),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.supervised_user_circle),
+              title: Text('Mon Compte'),
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.assessment),
+              title: Text('Statistiques'),
+            ),
+          ],
         ),
       ),
     );

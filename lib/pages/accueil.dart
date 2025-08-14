@@ -11,10 +11,7 @@ class Accueil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: MyHomePage());
   }
 }
 
@@ -26,42 +23,51 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final SnackBar _snackBar = SnackBar(
+    content: Text("Ceci est un snackbar"),
+    backgroundColor: Colors.red,
+    duration: Duration(seconds: 4),
+    action: SnackBarAction(label: 'Clic', onPressed: () {}),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        
         child: Container(
-          
-          child:Column(
-        children: [
-          Center(
-        child: Text("Bienvenu!"),
-      ),
-      ElevatedButton(onPressed: (){}, child:Text("FlatButton"),
-      ),
-      OutlinedButton(onPressed: (){}, child:Icon(FontAwesomeIcons.house,
-      color: Colors.blueAccent,
-      ),
-      
-      
-      ),
-      Ink(
-        child: Icon(Icons.abc),
-        decoration: BoxDecoration(
-     
-          color: Colors.teal
+          child: Column(
+            children: [
+              Center(child: Text("Bienvenu!")),
+              ElevatedButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(_snackBar);
+                },
+                child: Text("ElevetedtButton"),
+              ),
+              OutlinedButton(
+                
+                onPressed: () {
+                  final SnackBar snack2 = SnackBar(
+                    content: Text("Ceci ets un snavckbar dans outline buton"),
+                    duration: Duration(seconds: 3),
+                    backgroundColor: Colors.black54,
+                    action: SnackBarAction(
+                      label: 'Clic',
+                      textColor: Colors.white,
+                     onPressed: () {}),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snack2);
+                },
+                child: Icon(FontAwesomeIcons.house, color: Colors.blueAccent),
+              ),
+              Ink(
+                child: Icon(Icons.abc),
+                decoration: BoxDecoration(color: Colors.teal),
+              ),
+            ],
+          ),
         ),
       ),
-      TextButton(onPressed: (){}, child: Text("Texte button")),
-      CupertinoButton(child: Text("Cupertino"), onPressed:(){},
-      
-    
-       )
-        ],
-      ),
-        ),
-      )
     );
   }
 }
