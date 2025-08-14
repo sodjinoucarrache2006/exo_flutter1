@@ -63,7 +63,51 @@ class _MyStatistiqueState extends State<MyStatistique> {
     }
   }
 
-  
+  String _choix = 'Aucun';
+
+  void _choixSimple(String choix) {
+    setState(() {
+      _choix = choix;
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,6 +121,63 @@ class _MyStatistiqueState extends State<MyStatistique> {
               onStepContinue: _increment,
               onStepCancel: _decrement,
               currentStep: _index,
+            ),
+
+            ElevatedButton(
+              onPressed: () {
+                SnackBar _snap = SnackBar(
+                  content: Text("Ceci est est mon second snacbar"),
+                  duration: Duration(seconds: 4),
+                  backgroundColor: Colors.black26,
+                  action: SnackBarAction(label: "Clic", onPressed: () {}),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(_snap);
+              },
+              child: Text("SnackBar"),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text("AlerteButton"),
+                      content: Text("Ceci est une alertDialoqge"),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text("Close"),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              child: Text("AlertDialog"),
+            ),
+
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: () {},
+              child: Text("SimpleDialogue"),
+            ),
+            Padding(padding: EdgeInsets.only(bottom: 30)),
+
+            Text("Voici le choix fait avec le SimpleDialogue: "),
+            Padding(padding: EdgeInsets.only(bottom: 15)),
+            Text(
+              "$_choix",
+              style: TextStyle(
+                color: Colors.green,
+                fontWeight: FontWeight.bold,
+                fontSize: 40,
+              ),
             ),
           ],
         ),

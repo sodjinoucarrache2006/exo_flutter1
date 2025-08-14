@@ -28,17 +28,25 @@ class _MyHComptetate extends State<MyCompte> {
         child: Container(
           child: Column(
             children: [
-              Text("Mon compte"), 
+              Text("Mon compte"),
               Image.asset("assets/images/menu1.jpeg"),
-              Text("Ceci me est un style adapter aus textes Ceci me est un style adapter aus textes  Ceci me est un style adapter aus textes  ",
-              style: TextStyle(
-                color: Colors.brown,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic,
+              Text(
+                "Ceci me est un style adapter aus textes Ceci me est un style adapter aus textes  Ceci me est un style adapter aus textes  ",
+                style: TextStyle(
+                  color: Colors.brown,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
+                textAlign: TextAlign.justify,
+                overflow: TextOverflow.ellipsis,
               ),
-              textAlign: TextAlign.justify,
-              overflow: TextOverflow.ellipsis,
+
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Retour"),
               ),
             ],
           ),

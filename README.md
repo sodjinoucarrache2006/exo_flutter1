@@ -1,31 +1,85 @@
-#  Flutter Widgets Explorer
+# Flutter Widgets Explorer
 
-> Une mini application Flutter conçue pour explorer et pratiquer les widgets de base.
+> Une mini application Flutter conçue pour explorer et pratiquer les widgets de base appris jusqu'à présent.
 
-##  Objectif
+## 🎯 Objectif
+Ce projet est un exercice pratique dans le cadre de ma formation Flutter.  
+Il me permet de manipuler les widgets fondamentaux de Flutter à travers un petit projet multi-pages.
 
-Cette application est un projet d'apprentissage personnel dans le cadre de ma formation Flutter. Elle me permet de comprendre et de manipuler les widgets fondamentaux de Flutter dans un contexte multi-pages.
+---
 
-##  Fonctionnalités principales
+## 📌 Widgets appris et utilisés
 
-- **AppBar personnalisée**
-- **Drawer (menu latéral)**
-- **Bottom Navigation Bar** avec 3 pages
-- **Navigation entre pages**
-- Utilisation de widgets Flutter :
-  - `Column`, `Row`, `Container`
-  - `ElevatedButton`, `TextButton`, `IconButton`
-  - `Stepper` pour illustrer des étapes
-- Interface responsive et intuitive
+### 🏗 Structure
+- `Scaffold` : Structure de base d’une page
+- `AppBar` : Barre d’application en haut
+- `FloatingActionButton` + `FloatingActionButtonLocation`
+- `BottomNavigationBar` : Navigation par onglets
+- `Drawer` : Menu latéral
 
-##  Aperçu des pages
+### 🔘 Boutons
+- `ElevatedButton`
+- `OutlinedButton`
+- `IconButton`
+- `TextButton`
 
-- **Page 1** : Présentation des boutons et interactions
-- **Page 2** : Disposition avec `Row` et `Column`
-- **Page 3** : Exemple d'utilisation du `Stepper`
+### 🎨 Icônes
+- Icônes Material Design (`Icons`)
+- Icônes FontAwesome
 
-##  Lancer le projet
+### 🖼 Images
+- `Image.asset` (depuis les fichiers locaux)
+- `Image.network` (depuis internet)
+
+### ✍ Texte
+- `Text`
+- Mise en forme du texte
+- Choix de la police
+- Google Fonts (`google_fonts`)
+
+### 📏 Layouts
+- `Center`
+- `Column`
+- `Row`
+- `Expanded`
+- `Container`
+- `Padding`
+- `Divider`
+
+### 📜 Widgets interactifs
+- `Stepper`
+- `SnackBar`
+- `AlertDialog`
+
+### 🔀 Navigation
+- `Navigator.push`
+- `Navigator.pop`
+- `Navigator.pushNamed`
+
+---
+
+## 📂 Aperçu des pages
+
+1. **Accueil**
+   - Présentation des boutons (Elevated, Outlined, Icon, Text)
+   - Utilisation d’icônes (Material + FontAwesome)
+   - Image locale et en ligne
+   - Texte avec Google Fonts
+
+2. **Layout**
+   - Dispositions avec `Column`, `Row`, `Expanded`
+   - `Container` stylisé avec `Padding`
+   - Séparateurs avec `Divider`
+
+3. **Interaction**
+   - `Stepper` pour illustrer des étapes
+   - `SnackBar` et `AlertDialog`
+   - Navigation entre plusieurs pages (`push`, `pop`, `pushNamed`)
+
+---
+
+## ▶️ Lancer le projet
 
 ```bash
 flutter pub get
-flutter run# exo_flutter1
+flutter run
